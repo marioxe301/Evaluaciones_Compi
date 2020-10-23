@@ -1,0 +1,26 @@
+#include "const_lexer.h"
+
+/*!fa2lexer
+    %option generate.tokens = true;
+
+    %file "numeric_constants.jff";
+    %file "comments.jff";
+    %file "start.jff";
+
+    %generate.state_enum(State);
+*/
+
+Token ConstLexer::getNextToken()
+{
+    text = "";
+/*!fa2lexer
+    %generate.lexer(text);
+*/
+}
+
+const char *ConstLexer::tokenToString(Token tk)
+{
+/*!fa2lexer
+    %generate.toString(tk);
+*/    
+}
