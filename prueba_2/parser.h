@@ -25,6 +25,7 @@ private:
     void term();
     void term_p();
     void factor();
+    void assign_func_decl();
 };
 
 #endif

@@ -5,12 +5,15 @@ input -> stmt_list
 
 stmt_list -> stmt stmt_list_p
 
-stmt_list_p -> ; stmt ; stmt_list_p 
+stmt_list_p -> stmt ; stmt_list_p
             | %epsilon
 
-stmt -> IDENT = expr
-        | PRINT expr
-        | IDENT ( arg ) = expr
+stmt -> PRINT expr 
+        | IDENT assign_func_decl
+
+
+assign_func_decl -> = expr
+                        | ( arg ) = expr
 
 arg -> NUMBER
     | IDENT
