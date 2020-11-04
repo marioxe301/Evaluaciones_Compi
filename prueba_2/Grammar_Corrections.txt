@@ -21,6 +21,7 @@ arg -> NUMBER
 expr -> term expr_p
 
 expr_p -> + term expr_p
+        | - term expr_p
         | %epsilon
 
 term -> factor term_p
