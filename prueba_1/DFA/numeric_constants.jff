@@ -3,65 +3,105 @@
 	<automaton>
 		<!--The list of states.-->
 		<state id="0" name="q0">
-			<x>63.0</x>
-			<y>28.0</y>
+			<x>93.0</x>
+			<y>52.0</y>
 			<initial/>
 		</state>
 		<state id="1" name="q1">
-			<x>290.0</x>
-			<y>58.0</y>
+			<x>525.0</x>
+			<y>68.0</y>
 		</state>
 		<state id="2" name="q2">
-			<x>409.0</x>
-			<y>60.0</y>
+			<x>879.0</x>
+			<y>65.0</y>
 			<label>Token::Binary</label>
 			<final/>
 		</state>
 		<state id="3" name="q3">
-			<x>249.0</x>
-			<y>135.0</y>
+			<x>714.0</x>
+			<y>146.0</y>
 		</state>
 		<state id="4" name="q4">
-			<x>387.0</x>
-			<y>139.0</y>
-			<label>Token::Hex</label>
+			<x>889.0</x>
+			<y>153.0</y>
+			<label>Token::Octal</label>
 			<final/>
 		</state>
 		<state id="5" name="q5">
-			<x>196.0</x>
-			<y>169.0</y>
-		</state>
-		<state id="6" name="q6">
-			<x>329.0</x>
-			<y>202.0</y>
+			<x>569.0</x>
+			<y>147.0</y>
 			<label>Token::Decimal</label>
 			<final/>
 		</state>
+		<state id="6" name="q6">
+			<x>755.0</x>
+			<y>234.0</y>
+		</state>
 		<state id="7" name="q7">
-			<x>121.0</x>
-			<y>216.0</y>
+			<x>875.0</x>
+			<y>265.0</y>
+			<label>Token::Decimal</label>
+			<final/>
 		</state>
 		<state id="8" name="q8">
-			<x>227.0</x>
-			<y>256.0</y>
-			<label>Token::Octal</label>
+			<x>208.0</x>
+			<y>203.0</y>
+		</state>
+		<state id="9" name="q9">
+			<x>244.0</x>
+			<y>301.0</y>
+			<label>Token::Hex</label>
 			<final/>
+		</state>
+		<state id="10" name="q10">
+			<x>463.0</x>
+			<y>301.0</y>
 		</state>
 		<!--The list of transitions.-->
 		<transition>
 			<from>3</from>
+			<to>4</to>
+			<read>o</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>4</to>
+			<read>O</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>6</to>
+			<read>[0-9]</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>8</to>
+			<read>[0-9]</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>8</to>
+			<read>[A-F]</read>
+		</transition>
+		<transition>
+			<from>3</from>
 			<to>3</to>
-			<read>[0-9]</read>
-		</transition>
-		<transition>
-			<from>5</from>
-			<to>5</to>
-			<read>[0-9]</read>
-		</transition>
-		<transition>
-			<from>7</from>
-			<to>7</to>
 			<read>[0-7]</read>
+		</transition>
+		<transition>
+			<from>10</from>
+			<to>3</to>
+			<read>[0-7]</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>7</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>8</to>
+			<read>[a-f]</read>
 		</transition>
 		<transition>
 			<from>1</from>
@@ -74,19 +114,29 @@
 			<read>1</read>
 		</transition>
 		<transition>
-			<from>3</from>
-			<to>3</to>
+			<from>8</from>
+			<to>8</to>
 			<read>[a-f]</read>
 		</transition>
 		<transition>
 			<from>0</from>
 			<to>1</to>
-			<read>0</read>
+			<read>1</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>3</to>
+			<read>[2-7]</read>
 		</transition>
 		<transition>
 			<from>0</from>
 			<to>1</to>
-			<read>1</read>
+			<read>0</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>6</to>
+			<read>[8-9]</read>
 		</transition>
 		<transition>
 			<from>1</from>
@@ -100,58 +150,33 @@
 		</transition>
 		<transition>
 			<from>0</from>
-			<to>3</to>
+			<to>10</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>5</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>8</to>
 			<read>[A-F]</read>
 		</transition>
 		<transition>
-			<from>3</from>
-			<to>4</to>
+			<from>8</from>
+			<to>9</to>
 			<read>h</read>
 		</transition>
 		<transition>
-			<from>3</from>
-			<to>4</to>
+			<from>8</from>
+			<to>9</to>
 			<read>H</read>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>7</to>
-			<read>[0-7]</read>
-		</transition>
-		<transition>
-			<from>7</from>
-			<to>8</to>
-			<read>o</read>
-		</transition>
-		<transition>
-			<from>7</from>
-			<to>8</to>
-			<read>O</read>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>3</to>
-			<read>[a-f]</read>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>5</to>
-			<read>[0-9]</read>
-		</transition>
-		<transition>
-			<from>3</from>
-			<to>3</to>
-			<read>[A-F]</read>
-		</transition>
-		<transition>
-			<from>5</from>
-			<to>6</to>
-			<read/>
 		</transition>
 		<note>
 			<text>Name: Numeric_Constants</text>
-			<x>24.0</x>
-			<y>16.0</y>
+			<x>43.0</x>
+			<y>21.0</y>
 		</note>
 	</automaton>
 </structure>

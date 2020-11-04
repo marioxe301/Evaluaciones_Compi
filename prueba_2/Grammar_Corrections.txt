@@ -1,0 +1,30 @@
+Grammar
+================
+
+input -> stmt_list
+
+stmt_list -> stmt stmt_list_p
+
+stmt_list_p -> ; stmt stmt_list_p
+            | %epsilon
+
+stmt -> IDENT = expr
+        | PRINT expr
+        | IDENT ( arg ) = expr
+
+arg -> NUMBER
+    | IDENT
+
+expr -> term expr_p
+
+expr_p -> + term expr_p
+        | %epsilon
+
+term -> factor term_p
+
+term_p -> * factor term_p
+        | %epsilon
+
+factor -> IDENT
+        | NUMBER
+        | ( expr )
