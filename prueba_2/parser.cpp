@@ -18,20 +18,19 @@ void Parser::input(){
 void Parser::stmt_list(){
     stmt();
     stmt_list_p();
-    /*if( _currentToken == Token::Semicolon){
-        setNextToken();
-    }else{
-        throw false;
-    }*/
 }
 void Parser::stmt_list_p(){
     if(_currentToken == Token::Semicolon){
         setNextToken();
         stmt();
-        stmt_list_p();
-    }else{
-        /*Epsilon*/  
-    }
+        if(_currentToken == Token::Semicolon){
+            setNextToken();
+            stmt_list_p();
+        }else{
+            throw false;
+        }
+    }else{}
+
 }
 void Parser::stmt(){
     if(_currentToken == Token::Ident){
@@ -39,7 +38,8 @@ void Parser::stmt(){
         if(_currentToken == Token::OpAssign){
             setNextToken();
             expr();
-        }else{
+        }else if(_currentToken == Token::OpenPar){
+            setNextToken();
             arg();
             if(_currentToken == Token::ClosePar){
                 setNextToken();
@@ -75,6 +75,10 @@ void Parser::expr(){
 }
 void Parser::expr_p(){
     if(_currentToken == Token::OpAdd){
+        setNextToken();
+        term();
+        expr_p();
+    }else if(_currentToken == Token::OpSub){
         setNextToken();
         term();
         expr_p();

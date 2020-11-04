@@ -5,7 +5,7 @@ input -> stmt_list
 
 stmt_list -> stmt stmt_list_p
 
-stmt_list_p -> ; stmt stmt_list_p
+stmt_list_p -> ; stmt ; stmt_list_p 
             | %epsilon
 
 stmt -> IDENT = expr
