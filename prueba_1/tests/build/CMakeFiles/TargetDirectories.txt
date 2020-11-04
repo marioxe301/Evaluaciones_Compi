@@ -1,3 +1,0 @@
-/home/marioxe301/Documents/Compi_1/Evaluaciones_Compi/prueba_1/tests/build/CMakeFiles/rebuild_cache.dir
-/home/marioxe301/Documents/Compi_1/Evaluaciones_Compi/prueba_1/tests/build/CMakeFiles/edit_cache.dir
-/home/marioxe301/Documents/Compi_1/Evaluaciones_Compi/prueba_1/tests/build/CMakeFiles/test_lexer.dir
