@@ -1,0 +1,8 @@
+
+input -> list ( EOL list)*  EOF
+
+list -> Print ( expr ) | IDENT = expr | %epsilon
+
+expr -> term ( + term)*
+term -> factor ( * factor)*
+factor -> NUM | IDENT | ( expr )

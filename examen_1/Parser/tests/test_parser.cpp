@@ -88,12 +88,12 @@ TEST_CASE("Assign statement") {
     } catch (...) {
         parseSuccess = false;
     }
-    
     std::string str = out.str();
     INFO(str);
     REQUIRE(!l.hasTokens());
     CHECK(parseSuccess);
     CHECK(out.str() == "identifier=(number+number)*number;;");
+
 }
 
 TEST_CASE("Print statement") {
@@ -115,6 +115,7 @@ TEST_CASE("Print statement") {
     REQUIRE(!l.hasTokens());
     CHECK(parseSuccess);
     CHECK(out.str() == "print((number+number)*number);");
+
 }
 
 TEST_CASE("Assign/Print") {

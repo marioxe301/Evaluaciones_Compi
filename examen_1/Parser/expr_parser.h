@@ -10,11 +10,19 @@ public:
     Parser(Lexer& lexer, std::ostream& out): lexer(lexer), out(out)
     {}
 
-    int parse();
+    void parse();
+    void setCurretToken(Symbol token);
 
 private:
     Lexer& lexer;
     std::ostream& out;
+    Symbol currentToken;
+
+    void input();
+    void list();
+    void expr();
+    void term();
+    void factor();
 };
 
 #endif
