@@ -158,8 +158,8 @@ TEST_CASE("Complex expression with real numbers")
     CHECK(tk == Token::ClosePar);
     CHECK(l.getText() == ")");
     tk = l.getNextToken();
-    CHECK(tk == Token::OpMul);
-    CHECK(l.getText() == "*");
+    CHECK(tk == Token::OpDiv);
+    CHECK(l.getText() == "/");
     tk = l.getNextToken();
     CHECK(tk == Token::Number);
     CHECK(l.getText() == "3.141592653589793238462643383279502884197169399375105820974944592307816406286");
