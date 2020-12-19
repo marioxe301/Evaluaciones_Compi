@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
+	<type>fa</type>
+	<automaton>
+		<!--The list of states.-->
+		<state id="0" name="q0">
+			<x>73.0</x>
+			<y>75.0</y>
+			<initial/>
+		</state>
+		<state id="1" name="q1">
+			<x>207.0</x>
+			<y>78.0</y>
+		</state>
+		<state id="2" name="q2">
+			<x>354.0</x>
+			<y>82.0</y>
+			<label>Token::HexConst</label>
+			<final/>
+		</state>
+		<state id="3" name="q3">
+			<x>234.0</x>
+			<y>153.0</y>
+		</state>
+		<state id="4" name="q4">
+			<x>322.0</x>
+			<y>174.0</y>
+			<label>Token::BinaryConst</label>
+			<final/>
+		</state>
+		<state id="5" name="q5">
+			<x>179.0</x>
+			<y>250.0</y>
+		</state>
+		<state id="6" name="q6">
+			<x>311.0</x>
+			<y>255.0</y>
+			<label>Token::DecimalConst</label>
+			<final/>
+		</state>
+		<state id="7" name="q7">
+			<x>77.0</x>
+			<y>274.0</y>
+		</state>
+		<state id="8" name="q8">
+			<x>154.0</x>
+			<y>355.0</y>
+		</state>
+		<state id="9" name="q9">
+			<x>259.0</x>
+			<y>367.0</y>
+		</state>
+		<state id="10" name="ret:q10">
+			<x>396.0</x>
+			<y>369.0</y>
+			<label>return findStringConst(text);</label>
+		</state>
+		<state id="11" name="q11">
+			<x>67.0</x>
+			<y>453.0</y>
+		</state>
+		<state id="12" name="q12">
+			<x>182.0</x>
+			<y>446.0</y>
+		</state>
+		<state id="13" name="q13">
+			<x>190.0</x>
+			<y>519.0</y>
+			<label>reportError(ch);</label>
+		</state>
+		<!--The list of transitions.-->
+		<transition>
+			<from>3</from>
+			<to>4</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>[0-9]</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>5</to>
+			<read>[0-9]</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>6</to>
+			<read>0</read>
+		</transition>
+		<transition>
+			<from>7</from>
+			<to>11</to>
+			<read>-EOF</read>
+		</transition>
+		<transition>
+			<from>9</from>
+			<to>13</to>
+			<read>-'</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>12</to>
+			<read>-EOL</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>-$</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>6</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>7</from>
+			<to>8</to>
+			<read>Other</read>
+		</transition>
+		<transition>
+			<from>12</from>
+			<to>13</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>[a-f]</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>7</to>
+			<read>-'</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>12</to>
+			<read>-EOF</read>
+		</transition>
+		<transition>
+			<from>11</from>
+			<to>13</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>9</from>
+			<to>10</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>5</to>
+			<read>[1-9]</read>
+		</transition>
+		<transition>
+			<from>7</from>
+			<to>11</to>
+			<read>-EOL</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>3</to>
+			<read>[0-1]</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>3</to>
+			<read>-%</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>[A-F]</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>9</to>
+			<read>-'</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>8</to>
+			<read>Other</read>
+		</transition>
+		<note>
+			<text>Name: Constants</text>
+			<x>50.0</x>
+			<y>59.0</y>
+		</note>
+	</automaton>
+</structure>

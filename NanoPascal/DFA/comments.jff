@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
+	<type>fa</type>
+	<automaton>
+		<!--The list of states.-->
+		<state id="0" name="q0">
+			<x>80.0</x>
+			<y>100.0</y>
+			<initial/>
+		</state>
+		<state id="1" name="q1">
+			<x>178.0</x>
+			<y>102.0</y>
+		</state>
+		<state id="2" name="q2">
+			<x>269.0</x>
+			<y>101.0</y>
+		</state>
+		<state id="3" name="%start">
+			<x>377.0</x>
+			<y>96.0</y>
+		</state>
+		<state id="4" name="q4">
+			<x>184.0</x>
+			<y>169.0</y>
+		</state>
+		<state id="5" name="q5">
+			<x>280.0</x>
+			<y>192.0</y>
+			<label>text="";</label>
+		</state>
+		<state id="6" name="q6">
+			<x>381.0</x>
+			<y>192.0</y>
+		</state>
+		<state id="7" name="%start">
+			<x>469.0</x>
+			<y>189.0</y>
+		</state>
+		<state id="8" name="q8">
+			<x>197.0</x>
+			<y>267.0</y>
+		</state>
+		<state id="9" name="%start">
+			<x>345.0</x>
+			<y>276.0</y>
+		</state>
+		<state id="10" name="ret:q10">
+			<x>431.0</x>
+			<y>122.0</y>
+			<label>return findOperator(text);</label>
+		</state>
+		<state id="11" name="q11">
+			<x>245.0</x>
+			<y>345.0</y>
+			<label>ungetChar(0);preprocessorCheck(); text="";ch=32</label>
+		</state>
+		<state id="12" name="%start">
+			<x>405.0</x>
+			<y>349.0</y>
+		</state>
+		<!--The list of transitions.-->
+		<transition>
+			<from>2</from>
+			<to>3</to>
+			<read>-EOL</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>7</to>
+			<read>-)</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>10</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>5</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>4</to>
+			<read>(</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>5</to>
+			<read>-*</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read>-/</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>-/</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>8</to>
+			<read>-{</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>6</to>
+			<read>-*</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>-Other</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>5</to>
+			<read>-Other</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>11</to>
+			<read>-$</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>8</to>
+			<read>-Other</read>
+		</transition>
+		<transition>
+			<from>11</from>
+			<to>12</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>9</to>
+			<read>-}</read>
+		</transition>
+		<note>
+			<text>Name: Comments</text>
+			<x>94.0</x>
+			<y>22.0</y>
+		</note>
+	</automaton>
+</structure>

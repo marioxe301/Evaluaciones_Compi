@@ -1,3 +1,6 @@
+# VS Code files
 .vscode/
+
+#any build folder
 */*/build/
 **/build/

@@ -1,0 +1,52 @@
+
+<progam> -> program ID ';' <variable-section> <subprogram-decl>* begin <statement>* end '.'
+<variable-section> -> var <variable-decl> | %epsilon
+<variable-decl> {( ID ',' )+ ':' <type> ';'}*
+<type> -> integer | boolean | char | array <array-body>
+<array-body> -> '[' intConst '..' intConst ']' of <type>
+<subprogram-decl> -> <subprogram-header> [<variable-section>] begin <statement>* end ';'
+<subprogram-header> -> function <function-body> | procedure <procedure-body>
+<function-body> -> ID <funcOrProcArgs> ':' <type> ';'
+<procedure-body> -> ID <funcOrProcArgs> ';'
+
+<funcOrProcArgs> -> '(' ({ var <argument-body-var> | ID <argument-body-id> } ',' )*  ')' | %epsilon
+<argument-body-var> -> ID ':' <type>
+<argument-bodyid> -> ':' <type>
+
+<statement> ->  
+            | if <expr> then <block> <else-stmt>
+            | while <expr> do <block>
+            | repeat <block> unitl <expr> ';'
+            | for <AssignFor> <expr> to <expr> do <block>
+            | break ';'
+            | continue ';'
+            | ';'
+            | <AssignOrSubProg> ';'
+
+<else-stmt> -> else <block> | %epsilon
+<block> -> begin <statement>* end | <statement>
+
+<AssignOrSubProg> -> write <io-body>
+                    | writeln <io-body>
+                    | read <io-body>
+                    | ID <AssignOrSubProgP>
+
+<AssignOrSubProgP> -> '[' <expr> ']' ':=' <expr> 
+                    | ':=' <expr> 
+                    | '(' (<expr> ',')* ')'
+                    | %epsilon
+
+<io-body> -> '(' (<argument> ',')+ ')' 
+<argument> -> stringConst | <expr>
+
+
+
+<AssignFor> -> ID <array-var>':=' <expr> ';'
+<array-var> -> '[' <expr> ']' | %epsilon
+<func-args> -> '(' ({<expr>}+,)* ')'| '[' <expr> ']' | %epsilon
+
+<expr> -> <rel> ( '=' |'<>'| '<' | '>' | '<=' | '>=' <rel> )*
+<rel> -> <term> ( '+' | '-'| 'or'|'xor' <term>)*
+<term> -> <neg> ( '*' | 'div' | 'mod' | 'and' | 'shl' | 'shr' <neg> )*
+<neg> -> not <factor> | <factor>
+<factor> -> intConst| charConst | true | false | ID <func-args> | '(' <expr> ')'
